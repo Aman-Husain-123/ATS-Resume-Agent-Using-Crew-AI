@@ -12,7 +12,7 @@ This application provides a user-friendly interface for:
 Tech Stack:
 - Streamlit: Web UI framework
 - CrewAI: Multi-agent orchestration
-- OpenAI: LLM for agent intelligence
+- EURI (euron.one): LLM provider for agent intelligence
 - pypdf/python-docx: File parsing
 """
 
@@ -38,20 +38,21 @@ st.set_page_config(
 
 
 # ========== HEADER ==========
-st.title("🧠 ATS-Optimized Resume Agent (CrewAI + OpenAI)")
+st.title("🧠 ATS-Optimized Resume Agent (CrewAI + EURI)")
 st.caption(
     "Upload your resume (.pdf or .docx), target a role, and get an ATS-friendly version "
-    "with scores & quick wins."
+    "with scores & quick wins. Powered by EURI AI."
 )
 
 
 # ========== SIDEBAR ==========
 with st.sidebar:
-    st.subheader("OpenAI Settings")
+    st.subheader("EURI API Settings")
     # Display model being used (read-only)
-    st.text_input("Model:", value="gpt-4o-mini", disabled=True)
+    st.text_input("Model:", value="gpt-4.1-nano", disabled=True)
+    st.text_input("Provider:", value="EURI (euron.one)", disabled=True)
     # Confirm API key is loaded
-    st.write("API Key loaded: ✅ Working OpenAI key")
+    st.write("API Key loaded: ✅ EURI API configured")
 
 
 # ========== INPUT SECTION ==========

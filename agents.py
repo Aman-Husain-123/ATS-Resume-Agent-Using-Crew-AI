@@ -8,13 +8,17 @@ from crewai import Agent
 import os
 
 # ========== CONFIGURATION ==========
-# Load OpenAI API key from environment variable
-# Set your OPENAI_API_KEY in your environment or .env file
+# Load EURI API key from environment variable
+# Set your OPENAI_API_KEY (EURI token) and OPENAI_API_BASE in your .env file
 if "OPENAI_API_KEY" not in os.environ:
     raise ValueError("OPENAI_API_KEY environment variable is not set")
 
-# Model configuration - using GPT-4o-mini for cost-effective processing
-MODEL = "gpt-4o-mini"
+# Configure EURI API base URL if provided
+if "OPENAI_API_BASE" in os.environ:
+    os.environ["OPENAI_API_BASE"] = os.environ["OPENAI_API_BASE"]
+
+# Model configuration - using EURI's gpt-4.1-nano for cost-effective processing
+MODEL = "gpt-4.1-nano"
 
 
 # ========== AGENT BUILDERS ==========
